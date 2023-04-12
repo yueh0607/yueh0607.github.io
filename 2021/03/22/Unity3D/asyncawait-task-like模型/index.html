@@ -1,0 +1,445 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/website_logo.png"/>
+	<link rel="shortcut icon" href="/img/website_logo.png">
+	
+			    <title>
+    yueh0607
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="yueh0607" />
+    
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">BACK</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/C/">C</a></li><li><a class="category-link" href="/categories/C/">C++</a></li><li><a class="category-link" href="/categories/Unity3D/">Unity3D</a></li><li><a class="category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/yueh0607" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a title="500px" href="https://blog.csdn.net/qq_46273241" target="_blank" rel="noopener">
+                            <i class="icon fa fa-500px"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241053728.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >await/async与Task-Like的自定义</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <p>这篇文章确实带有一定的门槛，和我们平时的OOP编程不同，这种支持是编译时的，也就是说我们要抛弃传统OOP的思维，改为面向编译器进行编程。<br>我说的也不太清楚….重在自我理解，能找到这篇文章说明已经翻遍了CSDN…我也不会讲过于基础的内容了。</p>
+<h3 id="文末有反编译IL代码，文首有原理分析！！！"><a href="#文末有反编译IL代码，文首有原理分析！！！" class="headerlink" title="文末有反编译IL代码，文首有原理分析！！！"></a>文末有反编译IL代码，文首有原理分析！！！</h3><p><a target="_blank" rel="noopener" href="https://github.com/yueh0607/AirFramework/tree/main/Framework/Core/Async">我的项目地址-github</a>这个地址有可能要求梯子，球球了，觉得好就点个star吧<br>如果上面地址进不去，就进这个<a target="_blank" rel="noopener" href="https://gitee.com/imyueh/AirFramework/tree/main/Assets/Framework/Core/Async">”gitee地址“</a>这个更新可能不及时，但是作为参考没问题</p>
+<h1 id="1-异步"><a href="#1-异步" class="headerlink" title="1.异步"></a>1.异步</h1><p><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241053728.png" alt="在这里插入图片描述"></p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">&#x2F;&#x2F;这个方法在开始时自动被调用
+void Start()
+&#123;
+    AAA();
+    &#x2F;&#x2F;这个代表输出到控制台”666“
+    666.L();
+&#125;
+&#x2F;&#x2F;每隔一秒将输出一个数字，同时不会阻塞主线程的行为
+public async void AAA()
+    &#123;
+        await Async.Delay(1);
+        1.L();
+        await Async.Delay(1);
+        2.L();
+        await Async.Delay(1);
+        3.L();
+        await Async.Delay(1);
+        4.L();
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>按照同步的逻辑分析，666应该输出在1234之后，但是在异步中不同，AAA方法不会停留，而是继续向下，可以理解为新开了一个线程执行AAA方法，但是是假的，实际上还是在主线程里。</p>
+<h2 id="异步原理分析-结合后面一起看"><a href="#异步原理分析-结合后面一起看" class="headerlink" title="异步原理分析(结合后面一起看)"></a>异步原理分析(结合后面一起看)</h2><p>1.Start方法执行到AAA进入方法<br>2.调用AsyncTaskMethodBuilder.Create静态创建并返回Builder<br>3.进入Delay获取Delay返回的AsyncTask对象<br>4.await等待AsyncTask时调用AsyncTask.GetAwaiter返回AsyncTask(IAwiter)<br>5.调用OnCompleted方法，将continuation委托更新为await以后的代码<br>5.等待Dealy方法内的Timer对象完成回调AsyncTask.SetResult方法<br>6.调用SetResult后，执行continuation委托，执行await之后的代码<br>7.进入下一个await</p>
+<p>总结：OnCompleted的continuation就是await之后，直到方法结束的代码，每次执行到await都会执行来更新到下一个段落，此前会检查IsCompleted，然后需要我们调用SetResult才能切换到下一个状态。</p>
+<h1 id="2-自定义await支持"><a href="#2-自定义await支持" class="headerlink" title="2.自定义await支持"></a>2.自定义await支持</h1><p>首先毫无道理的讲，<strong>C#就要求我们定义的类满足这个要求才能像下面这么写</strong>，原因简单粗暴：编译器要调用这个方法，按照要求做就可以。</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">await new AsyncTask();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><font color=red>  <strong>要想使得类支持await关键字的唯一要求：</strong> <strong>包含GetAwaiter方法</strong></font>(也可以是拓展方法)<br>我们当然不允许项目内出现这样的无礼要求！！！用接口约束可等待的类，<font color=red>  <strong>只要实现了这个接口，就能被await关键字支持。</strong></font></p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">public interface IAwaitable&lt;out TAwaiter&gt; where TAwaiter : IAwaiter
+&#123;
+    TAwaiter GetAwaiter();
+&#125;
+public interface IAwaitable&lt;out TAwaiter,out TResult&gt; where TAwaiter : IAwaiter&lt;TResult&gt;
+&#123;
+    TAwaiter GetAwaiter();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我们可以看到GetAwaiter方法返回了一个IAwaiter，接下来我们尝试自定义Awaiter</p>
+<h1 id="3-自定义Awaiter"><a href="#3-自定义Awaiter" class="headerlink" title="3.自定义Awaiter"></a>3.自定义Awaiter</h1><p><font color=red><strong>System.Runtime.CompilerServices</strong></font>命名空间下提供了这样两个接口，<font color=red><strong>编译器要求Awaiter必须实现其中一个接口</strong></font></p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">public interface INotifyCompletion
+   &#123;
+       void OnCompleted(Action continuation);
+   &#125;
+   public interface ICriticalNotifyCompletion : INotifyCompletion
+   &#123;
+       void UnsafeOnCompleted(Action continuation);
+   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241053728.jpeg" alt="在这里插入图片描述"><br><strong>关于Awaiter的要求：</strong></p>
+<ol>
+<li><font color=red><strong>有bool IsCompleted { get; }</strong>   </li>
+<li><font color=red><strong>有GetResult方法</strong></font></li>
+</ol>
+<p>关于IsCompleted，异步流程执行到await时，会检查IsCompleted，如果为true，则表明任务已经完成，await直接结束。</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">int value &#x3D; await GetValueAsync();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>关于GetResult也很好理解，我们不陌生上面这样的语法，在await被结束时，会调用GetResult方法返回一个值。</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">public interface IAwaiter : INotifyCompletion
+&#123;
+    bool IsCompleted &#123; get; &#125;
+    void GetResult();
+&#125;
+
+public interface IAwaiter&lt;T&gt; : INotifyCompletion
+&#123;
+    bool IsCompleted &#123; get; &#125;
+    T GetResult();
+&#125;
+
+public interface ICriticalAwaiter :ICriticalNotifyCompletion,IAwaiter
+&#123;
+&#125;
+
+public interface ICriticalAwaiter&lt;T&gt;:ICriticalNotifyCompletion,IAwaiter&lt;T&gt;
+&#123;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在上面我们定义了四个接口，都是与Awaiter相关的，CriticalAwaiter不同的是UnsafeOnCompleted方法，在异步执行的代码可能给程序产生负面影响(如异常)时，我们可以使用这个Awaiter接口。</p>
+<h1 id="3-自定义异步任务接口"><a href="#3-自定义异步任务接口" class="headerlink" title="3. 自定义异步任务接口"></a>3. 自定义异步任务接口</h1><p>我们进一步拓展，给异步任务更多的功能，这些不是编译器的要求了，而是我们自己的需要。<br>当任务完成时，<strong>我们可以手动调用</strong>SetResult，在出现异常时调用SetException。</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">public interface IAsyncTask : ICriticalAwaiter
+   &#123;   
+       void SetResult();
+       void SetException(Exception exception);
+   &#125;
+
+
+   public interface IAsyncTask&lt;T&gt; : ICriticalAwaiter&lt;T&gt; 
+   &#123;
+   	&#x2F;&#x2F;参数就是GetResult拿到的结果
+       void SetResult(T result);
+       void SetException(Exception exception);
+   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="4-实现异步任务类"><a href="#4-实现异步任务类" class="headerlink" title="4.实现异步任务类"></a>4.实现异步任务类</h1><p><strong>千万记住要加上这个特性</strong>，只有这样才能指定AsyncTask作为返回值时进行AsyncTaskMethodBuilder自动创建，泛型时写	<strong>[AsyncMethodBuilder(typeof(AsyncTaskMethodBuilder&lt;&gt;))]</strong></p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">&#x2F;&#x2F;特性指定AsyncMethodBuilder
+[AsyncMethodBuilder(typeof(AsyncTaskMethodBuilder))]
+   public partial class AsyncTask : PoolableObject&lt;AsyncTask&gt;, IAsyncTask
+   &#123;
+       public AsyncTask GetAwaiter() &#x3D;&gt; this;
+       public Action continuation;
+       public Exception Exception &#123; get; private set; &#125;
+       public bool IsCompleted &#123; get; set; &#125;
+      
+       public void OnCompleted(Action continuation)
+       &#123;
+           UnsafeOnCompleted(continuation);
+       &#125;
+
+       public void UnsafeOnCompleted(Action continuation)
+       &#123;
+           this.continuation &#x3D; continuation;
+       &#125;
+
+       public void SetException(Exception exception)
+       &#123;
+           IsCompleted&#x3D; true;
+           this.Exception &#x3D; exception;
+       &#125;
+	&#x2F;&#x2F;啥也不返回
+       public void GetResult()&#123; &#125;
+
+       public void SetResult()
+       &#123;
+           &#x2F;&#x2F;执行await以后的代码
+           continuation?.Invoke();
+           &#x2F;&#x2F;回收到Pool内
+           this.Dispose();
+       &#125;
+   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="5-AsyncTaskMethodBuilder"><a href="#5-AsyncTaskMethodBuilder" class="headerlink" title="5.AsyncTaskMethodBuilder"></a>5.AsyncTaskMethodBuilder</h1><p>没错，这些又是编译器的无礼要求，已经快要成模板了</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">public struct AsyncTaskMethodBuilder
+   &#123;
+       private AsyncTask task;
+
+       &#x2F;&#x2F; 1. Static Create method 编译器调用静态创建方法来创建Builder
+       [DebuggerHidden]
+       public static AsyncTaskMethodBuilder Create() &#x3D;&gt; new AsyncTaskMethodBuilder(AsyncTask.Create(fromPool:true));
+
+       &#x2F;&#x2F;2.Construct Method 构造Builder时调用
+       public AsyncTaskMethodBuilder(AsyncTask task) &#x3D;&gt; this.task &#x3D; task;
+
+
+       &#x2F;&#x2F; . TaskLike Task property.
+       [DebuggerHidden]
+       public AsyncTask Task &#x3D;&gt; task;
+
+       &#x2F;&#x2F; 3. Start 构造之后开启状态机
+       [DebuggerHidden]
+       public void Start&lt;TStateMachine&gt;(ref TStateMachine stateMachine) where TStateMachine : IAsyncStateMachine
+       &#123;
+           stateMachine.MoveNext();
+       &#125;
+
+       &#x2F;&#x2F; 4. SetException 当出现异常时编译器调用，将异常绑定到任务
+       [DebuggerHidden]
+       public void SetException(Exception exception)
+       &#123;
+           task.SetException(exception);
+       &#125;
+
+       &#x2F;&#x2F; 5. SetResult 当任务成功完成时编译器调用这个方法,将该任务标记为已成功完成
+       [DebuggerHidden]
+       public void SetResult()
+       &#123;
+           task.SetResult();
+       &#125;
+
+       &#x2F;&#x2F; 6. AwaitOnCompleted  在SetResult之后编译器调用OnCompleted
+       [DebuggerHidden]
+
+       public void AwaitOnCompleted&lt;TAwaiter, TStateMachine&gt;(ref TAwaiter awaiter, ref TStateMachine stateMachine) where TAwaiter : INotifyCompletion where TStateMachine : IAsyncStateMachine
+       &#123;
+           awaiter.OnCompleted(stateMachine.MoveNext);
+       &#125;
+
+       &#x2F;&#x2F; 7. AwaitUnsafeOnCompleted 同OnCompleted
+       [SecuritySafeCritical]
+       public void AwaitUnsafeOnCompleted&lt;TAwaiter, TStateMachine&gt;(ref TAwaiter awaiter, ref TStateMachine stateMachine) where TAwaiter : ICriticalNotifyCompletion where TStateMachine : IAsyncStateMachine
+       &#123;
+           awaiter.OnCompleted(stateMachine.MoveNext);
+       &#125;
+
+       &#x2F;&#x2F; 9. SetStateMachine  将生成器与指定的状态机相关联
+       [DebuggerHidden]
+       public void SetStateMachine(IAsyncStateMachine stateMachine)
+       &#123;
+
+       &#125;
+   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>不用担心这个OnCompleted参数委托的GC问题，因为代码会在编译时被静态编译为一个状态机，实际上编译后的IL代码不是我们所见的这样。</p>
+<h1 id="6-Delay方法"><a href="#6-Delay方法" class="headerlink" title="6.Delay方法"></a>6.Delay方法</h1><p>我写了一个例子来使用这个AsyncTask，由于全部从池内取出，并没有GC产出，而C#原生的Task类型显得十分臃肿，带有高昂的GC代价。</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">public static AsyncTask Delay(float seconds)
+       &#123;
+           var task &#x3D; Framework.Pool.Allocate&lt;AsyncTask&gt;();
+           var timer &#x3D; Framework.Pool.Allocate&lt;TimerCall&gt;();
+           timer.OnCompleted +&#x3D; task.SetResult;
+           timer.OnCompleted +&#x3D; timer.Dispose;
+           timer.Start(TimeSpan.FromSeconds(seconds));
+           return task;
+       &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="C-3-0-反编译-System-Tasks-Task-的-IL-代码"><a href="#C-3-0-反编译-System-Tasks-Task-的-IL-代码" class="headerlink" title="C # 3.0 反编译 System.Tasks.Task 的 IL 代码"></a>C # 3.0 反编译 System.Tasks.Task 的 IL 代码</h1><p>被反编译的代码</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">public async Task TaskTest()
+&#123;
+    await Task.Run(() &#x3D;&gt; &#123; &#125;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>反编译结果IL代码</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">[CompilerGenerated]
+private sealed class &lt;TaskTest&gt;d__1 : IAsyncStateMachine
+&#123;
+    public int &lt;&gt;1__state;
+
+    public AsyncTaskMethodBuilder &lt;&gt;t__builder;
+
+    public ClassA &lt;&gt;4__this;
+
+    private TaskAwaiter &lt;&gt;u__1;
+
+    private void MoveNext()
+    &#123;
+        int num &#x3D; &lt;&gt;1__state;
+        try
+        &#123;
+            TaskAwaiter awaiter;
+            if (num !&#x3D; 0)
+            &#123;
+                awaiter &#x3D; Task.Run(delegate
+                &#123;
+                &#125;).GetAwaiter();
+                if (!awaiter.IsCompleted) &#x2F;&#x2F;await修饰的状态未完成？把控制器交由该类
+                &#123;
+                    num &#x3D; (&lt;&gt;1__state &#x3D; 0);
+                    &lt;&gt;u__1 &#x3D; awaiter;
+                    &lt;TaskTest&gt;d__1 stateMachine &#x3D; this;
+                    &lt;&gt;t__builder.AwaitUnsafeOnCompleted(ref awaiter, ref stateMachine);
+                    return;
+                &#125;
+            &#125;
+            else
+            &#123;
+                awaiter &#x3D; &lt;&gt;u__1;
+                &lt;&gt;u__1 &#x3D; default(TaskAwaiter);
+                num &#x3D; (&lt;&gt;1__state &#x3D; -1);
+            &#125;
+            awaiter.GetResult();
+        &#125;
+        catch (Exception exception)
+        &#123;
+            &lt;&gt;1__state &#x3D; -2;
+            &lt;&gt;t__builder.SetException(exception);
+            return;
+        &#125;
+        &lt;&gt;1__state &#x3D; -2;
+        &lt;&gt;t__builder.SetResult();
+    &#125;
+
+    void IAsyncStateMachine.MoveNext()
+    &#123;
+        &#x2F;&#x2F;ILSpy generated this explicit interface implementation from .override directive in MoveNext
+        this.MoveNext();
+    &#125;
+
+    [DebuggerHidden]
+    private void SetStateMachine(IAsyncStateMachine stateMachine)
+    &#123;
+    &#125;
+
+    void IAsyncStateMachine.SetStateMachine(IAsyncStateMachine stateMachine)
+    &#123;
+        &#x2F;&#x2F;ILSpy generated this explicit interface implementation from .override directive in SetStateMachine
+        this.SetStateMachine(stateMachine);
+    &#125;
+&#125;
+
+[AsyncStateMachine(typeof(&lt;TaskTest&gt;d__1))]
+[DebuggerStepThrough]
+public Task TaskTest()
+&#123;
+    &lt;TaskTest&gt;d__1 stateMachine &#x3D; new &lt;TaskTest&gt;d__1();
+    stateMachine.&lt;&gt;4__this &#x3D; this;
+    stateMachine.&lt;&gt;t__builder &#x3D; AsyncTaskMethodBuilder.Create(); &#x2F;&#x2F;创那就状态机
+    stateMachine.&lt;&gt;1__state &#x3D; -1; &#x2F;&#x2F;初始状态-1
+    AsyncTaskMethodBuilder &lt;&gt;t__builder &#x3D; stateMachine.&lt;&gt;t__builder;
+    &lt;&gt;t__builder.Start(ref stateMachine); &#x2F;&#x2F;启动状态机
+    return stateMachine.&lt;&gt;t__builder.Task; &#x2F;&#x2F;返回值
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+				<span id="busuanzi_container_site_pv"> 2023 </span> 
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>

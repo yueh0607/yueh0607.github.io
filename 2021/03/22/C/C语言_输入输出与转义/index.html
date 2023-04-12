@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/website_logo.png"/>
+	<link rel="shortcut icon" href="/img/website_logo.png">
+	
+			    <title>
+    yueh0607
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="yueh0607" />
+    
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">BACK</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/C/">C</a></li><li><a class="category-link" href="/categories/C/">C++</a></li><li><a class="category-link" href="/categories/Unity3D/">Unity3D</a></li><li><a class="category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/yueh0607" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a title="500px" href="https://blog.csdn.net/qq_46273241" target="_blank" rel="noopener">
+                            <i class="icon fa fa-500px"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://raw.githubusercontent.com/yueh0607/MyPicueres/main/CPP.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >C语言-输入输出与转义</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="第一个程序与main函数"><a href="#第一个程序与main函数" class="headerlink" title="第一个程序与main函数"></a>第一个程序与main函数</h2><p>stdio.h  &#x3D;  standard  input output  . head</p>
+<p>main函数是C语言定义的入口，程序从这里顺次执行，main函数在一个项目里具备唯一性</p>
+<p>也就是说一个C程序只有一个main函数</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;   &#x2F;&#x2F;通过预编译指令导入头文件，在编译时导入
+&#x2F;&#x2F;#include&quot;stdio.h&quot;   
+&#x2F;&#x2F;这种也是允许的，这种方式将先检索用户自定义的头文件，然后再到系统定义的里寻找，上面的方式正好相反
+&#x2F;&#x2F;通常建议系统头文件均采用第一种方式
+
+
+&#x2F;&#x2F;过去常常写void作为返回,新的写法是第二种，其实写float...都可以执行
+&#x2F;*
+	void main()
+	&#123;
+	
+	&#125;
+*&#x2F;
+
+
+&#x2F;&#x2F;如果返回0,则代表程序正常退出,否则代表程序异常退出
+&#x2F;&#x2F;返回值表示了程序的退出状态，这是建议的一种写法
+int main()
+&#123;
+	&#x2F;&#x2F;控制台输出函数
+	printf(&quot;Hello,World!\n&quot;);
+	return 0;
+&#125;
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="简单输入与输出"><a href="#简单输入与输出" class="headerlink" title="简单输入与输出"></a>简单输入与输出</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt; 
+int main()
+&#123;
+    int value;
+    scanf(&quot;value&#x3D;%d&quot;,&amp;value);
+	&#x2F;&#x2F;控制台输出函数
+	printf(&quot;Hello,World!%d\n&quot;,value);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>通过简单的占位符，我们能进行输入和输出，其中scanf前面的字符串内必须进行相同的输入，但是我们需要用值替换%d,像这样输入</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">value&#x3D;30
+&#x2F;&#x2F;如果是scanf(&quot;%d&quot;,&amp;value);我们只需要输入30即可<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>另外scanf有溢出风险，因为输入的长度是不确定的，直接赋值给value，有可能导致越界访问，这样可能影响其他程序的安全性，所以在VisualStudio中禁用scanf，采用scanf_s代替。</p>
+<p>需要注意scanf必须传入的是地址表列，而不是值。</p>
+<h2 id="常用占位符"><a href="#常用占位符" class="headerlink" title="常用占位符"></a>常用占位符</h2><table>
+<thead>
+<tr>
+<th>%d</th>
+<th>十进制整数(int)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%ld</td>
+<td>long</td>
+</tr>
+<tr>
+<td>%lld</td>
+<td>long long</td>
+</tr>
+<tr>
+<td>%u</td>
+<td>unsigned int</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>八进制整型</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>十六进制整数&#x2F;字符串地址</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>单个字符</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>float，默认保留6位</td>
+</tr>
+<tr>
+<td>%lf</td>
+<td>double</td>
+</tr>
+<tr>
+<td>%e</td>
+<td>科学计数法</td>
+</tr>
+<tr>
+<td>%g</td>
+<td>根据大小自动选取f或e格式，去掉无效0</td>
+</tr>
+</tbody></table>
+<h2 id="转义符"><a href="#转义符" class="headerlink" title="转义符"></a>转义符</h2><p>转义符可以取消关键字符的特殊性，下面是常见的转义符使搭配</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">printf(&quot;\b&quot;);&#x2F;&#x2F;退格符
+printf(&quot;\n&quot;);&#x2F;&#x2F;换行
+printf(&quot;\a&quot;);&#x2F;&#x2F;响铃，电脑真的响一下，不可思议
+printf(&quot;\t&quot;);&#x2F;&#x2F;水平制表符
+printf(&quot;\v&quot;);&#x2F;&#x2F;垂直制表符
+printf(&quot;\130&quot;);&#x2F;&#x2F;输出char对应130的字符
+printf(&quot;%% %d&quot;,12);&#x2F;&#x2F;%的转义使用%,而不是\<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+				<span id="busuanzi_container_site_pv"> 2023 </span> 
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>

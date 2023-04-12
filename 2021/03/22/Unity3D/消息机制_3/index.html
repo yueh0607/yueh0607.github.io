@@ -1,0 +1,541 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/website_logo.png"/>
+	<link rel="shortcut icon" href="/img/website_logo.png">
+	
+			    <title>
+    yueh0607
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="yueh0607" />
+    
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">BACK</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/C/">C</a></li><li><a class="category-link" href="/categories/C/">C++</a></li><li><a class="category-link" href="/categories/Unity3D/">Unity3D</a></li><li><a class="category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/yueh0607" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a title="500px" href="https://blog.csdn.net/qq_46273241" target="_blank" rel="noopener">
+                            <i class="icon fa fa-500px"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241036422.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Unity3D基于观察者模式的消息机制(3)</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <p>本文将从思路和实现讲解基于观察者模式的全局消息机制的实现过程<br>如果喜欢请给我的博客或者<a target="_blank" rel="noopener" href="https://github.com/yueh0607/AirFramework">我的项目</a>点个免费的star吧<br>项目内包含本文全部完整源码(可运行)</p>
+<h1 id="一、消息机制"><a href="#一、消息机制" class="headerlink" title="一、消息机制"></a>一、消息机制</h1><p>虽然前两篇文章以及写过消息机制是为何物了，但是这里我还是想重申一下，但是稍微简略<br><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241036685.jpeg" alt="在这里插入图片描述"></p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46273241/article/details/105793637?csdn_share_tail=%7B%22type%22:%22blog%22,%22rType%22:%22article%22,%22rId%22:%22105793637%22,%22source%22:%22qq_46273241%22%7D">Unity C# 实现简易消息机制</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46273241/article/details/128754245">消息机制填坑笔记（2）</a></li>
+</ol>
+<p>消息机制用于不同的类、模块之间的通信，让<strong>模块之间相互解耦，与消息中心耦合</strong>。<br>A与B之间不再高耦合，而是分别与中心耦合，好处就是当模块数量倍增时，<strong>单一模块崩溃不会产生过大的异常</strong>，而且方便<strong>一个模块对多个模块广播他的命令</strong>。<br><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241036470.png" alt="在这里插入图片描述"></p>
+<h1 id="二、观察者模式"><a href="#二、观察者模式" class="headerlink" title="二、观察者模式"></a>二、观察者模式</h1><p>在一个神秘的丛林里，有一群老鼠和一只猫，每只老鼠都在观察者猫，猫只要有风吹草动就会被几百只老鼠知道。<br>这就是观察者模式，我们换一个更简单的例子来说<br><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241036422.png" alt="在这里插入图片描述"></p>
+<p>我们几百个读者都订阅了人民日报公众号，人民日报更新时我们几百个人会收到同样的内容<br>这也是观察者模式，不过因为是用现实中的软件的实现所以更加贴合我们的程序。<br>我们可以根据需要选择是否订阅这个公众号，和是否取关，而公众号可以决定是否发布。<br>这就是观察者模式消息机制的抽象模型</p>
+<blockquote>
+<p>订阅(Subscribe)<br>取消订阅(UnSubscribe)<br>发布(Publish)</p>
+</blockquote>
+<h1 id="三、实现方向的确定"><a href="#三、实现方向的确定" class="headerlink" title="三、实现方向的确定"></a>三、实现方向的确定</h1><blockquote>
+<p>泛型：需要写很多泛型的重载代码不好维护，但是用的时候语法很舒服，性能高<br>元组：需要用户自己元组类型转换，语法难受，性能高<br>params：方便维护，语法舒服，性能瓶颈严重</p>
+</blockquote>
+<p>前面说到了元组，params，泛型等方式，我们考虑到性能问题，还是选择使用泛型避免装箱拆箱，同时能把最大的舒适度交给用户，用户不用写元组的类型转换了，苦的只是程序员本身，作为一个轮子泛型应该是很合适的了。(让chatgpt帮我生成重复的泛型，233）<br>前面也说到了</p>
+<blockquote>
+<p>string ： 有GC问题，方便但是也不好管理事件总和<br>enum：需要手动添加，或者工具生成，性能高，容易管理<br>long：需要写工具生成long，性能高，容易管理<br>interface: 实现空接口略微比较麻烦，不好管理所有事件，但是比较严谨<br>object：不做限制有装箱问题，不值得</p>
+</blockquote>
+<p>之前选择的key都或多或少存在各种问题，但是我最终选择的interface，表面上看起来不合适的方法，但是其实这样是合理的，string和object显然是不能选择的，enum和long有很多项目在使用，但是我不想写这个很复杂的工具生成，会让用户手忙脚乱，相比之下接口就是最合适的选择了。<br>我要求能接受消息的对象必须实现IMessageReceiver，我要求所有消息类型实现IMessage，他们都是空接口，我可以根据这个模型建立一个四层结构</p>
+<ul>
+<li><strong>管理器(Manager)&gt;派发器(Dispatcher)&gt;事件组(DelegateGroup)&gt;事件集合</strong></li>
+</ul>
+<p>其中他们的抽象模型为</p>
+<ul>
+<li><p><strong>管理器为 Dictionar&lt;Type,Dispatcher&gt; Type为消息类型，根据消息类型找到该类消息的派发器</strong></p>
+</li>
+<li><p><strong>派发器为 Dictionary&lt;IMessageReceiver,DelegateGroup&gt; 根据接收者实例确定事件组</strong></p>
+</li>
+<li><p><strong>事件表为 Dictionary&lt;Type,List&lt;Delegate.&gt;&gt; ，Type为委托类型以支持重载，根据委托类型确定具体事件集合</strong></p>
+</li>
+</ul>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">Framework.Message.Operator&lt;IAwake&gt;(this).Publish(1, 2, 100.0f);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>我可以根据”消息类型“，”接收者“，”参数“来确定所有的定位条件</p>
+<h1 id="四、事件组"><a href="#四、事件组" class="headerlink" title="四、事件组"></a>四、事件组</h1><p>我们要实现一个存储委托类型和该类型委托列表的字典<strong>Dictionary&lt;Type, List<Delegate>&gt;</strong> events，但是以下代码不包含对象池，可能不能正常运行，仅作参考</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">using System;
+using System.Collections.Generic;
+
+namespace AirFramework
+&#123;
+    &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+    &#x2F;&#x2F;&#x2F; 委托组(方法组委托)
+    &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+    public partial class DelegateGroup : Unit
+    &#123;
+
+        private Dictionary&lt;Type, UnitList&lt;Delegate&gt;&gt; events &#x3D; new();
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 委托类型数
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        public int Count &#x3D;&gt; events.Count;
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 委托总数(计算重载)
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        public int CountAll
+        &#123;
+            get
+            &#123;
+                int allCount &#x3D; 0;
+                foreach (var kvp in events)
+                &#123;
+                    allCount +&#x3D; kvp.Value.Value.Count;
+                &#125;
+                return allCount;
+            &#125;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">namespace AirFramework
+&#123;
+    &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+    &#x2F;&#x2F;&#x2F; 委托组(方法组委托)
+    &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+    public partial class DelegateGroup : Unit
+    &#123;
+        internal static Func&lt;UnitList&lt;Delegate&gt;&gt; GetUnitListFromPool &#x3D; () &#x3D;&gt; Framework.Pool.Allocate&lt;UnitList&lt;Delegate&gt;&gt;();
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 移除该类型委托
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        &#x2F;&#x2F;&#x2F; &lt;param name&#x3D;&quot;deleType&quot;&gt;&lt;&#x2F;param&gt;
+        public void Remove(Type deleType)
+        &#123;
+            events.TryRemoveAndDispose(deleType);
+        &#125;
+
+        &#x2F;&#x2F;&#x2F; 返回同类型可空委托列表，禁止长期持有返回值的引用，该引用在对象池回收后无效，且可能存在元素的数量改变
+        public List&lt;Delegate&gt; Get&lt;DelegateType&gt;()
+        &#123;
+            return GetDelegateList(typeof(DelegateType));
+        &#125;
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 添加委托
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        public void Add(Delegate dele, Type deleType)
+        &#123;
+            events.GetValueOrAddDefault(deleType, GetUnitListFromPool).Value.Add(dele);
+        &#125;
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 移除委托
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        public void Remove(Delegate dele, Type deleType)
+        &#123;
+            if (events.TryGetValue(deleType, out var kvp))
+            &#123;
+                kvp.Value.Remove(dele);
+                if (kvp.Value.Count &#x3D;&#x3D; 0)
+                &#123;
+                    events.RemoveAndDispose(deleType);
+                &#125;
+            &#125;
+        &#125;
+
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 返回同类型可空委托列表，禁止长期持有返回值的引用，该引用在对象池回收后无效，且可能存在元素的数量改变
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        &#x2F;&#x2F;&#x2F; &lt;param name&#x3D;&quot;deleType&quot;&gt;&lt;&#x2F;param&gt;
+        &#x2F;&#x2F;&#x2F; &lt;returns&gt;&lt;&#x2F;returns&gt;
+        public List&lt;Delegate&gt; GetDelegateList(Type deleType)
+        &#123;
+            return events.GetValueOrDefault(deleType)?.Value;
+        &#125; 
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="五、派发器"><a href="#五、派发器" class="headerlink" title="五、派发器"></a>五、派发器</h1><p>派发器负责 具体对象到事件组的获取</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">&#x2F;********************************************************************************************
+ * Author : yueh0607
+ * Date : 2023.1.30
+ * Description : 
+ * 抽象模型消息派发器，负责处理每类消息的派发任务，可以指定接收者与派发类型
+ *&#x2F;
+
+using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+
+namespace AirFramework
+&#123;
+    &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+    &#x2F;&#x2F;&#x2F; 消息分发器
+    &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+    public partial class MessageDispatcher : Unit
+    &#123;
+        public int Count &#x3D;&gt; events.Count;
+        private Dictionary&lt;IMessageReceiver, UnitDelegateGroup&gt; events &#x3D; new();
+        internal Dictionary&lt;IMessageReceiver,UnitDelegateGroup&gt; EevensList&#x3D;&gt; events;
+    &#125;
+    &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+    &#x2F;&#x2F;&#x2F; 消息分发器
+    &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+    public partial class MessageDispatcher : Unit
+    &#123;
+		&#x2F;&#x2F;从对象池获取
+        internal static Func&lt;UnitDelegateGroup&gt; GetGroupFromPool &#x3D; () &#x3D;&gt; Framework.Pool.Allocate&lt;UnitDelegateGroup&gt;();
+
+
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 访问或添加：获取指定接收者的委托派发组
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        &#x2F;&#x2F;&#x2F; &lt;param name&#x3D;&quot;receiver&quot;&gt;&lt;&#x2F;param&gt;
+        &#x2F;&#x2F;&#x2F; &lt;returns&gt;&lt;&#x2F;returns&gt;
+        public UnitDelegateGroup GetOrAddGroup(IMessageReceiver receiver)
+        &#123;
+            return events.GetValueOrAddDefault(receiver, GetGroupFromPool);
+        &#125;
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 添加：为接收者添加指定的委托派发
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        public void Add(IMessageReceiver receiver, Type deleType, Delegate dele)
+        &#123;
+            events.GetValueOrAddDefault(receiver, GetGroupFromPool).Value.Add(dele, deleType);
+        &#125;
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 移除：为接收者移除指定委托派发
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+
+        public void Remove(IMessageReceiver receiver, Type deleType, Delegate dele)
+        &#123;
+            if (events.TryGetValue(receiver, out var group))
+            &#123;
+                group.Value.Remove(dele, deleType);
+                if (group.Value.Count &#x3D;&#x3D; 0)
+                &#123;
+                    events.RemoveAndDispose(receiver);
+                &#125;
+            &#125;
+        &#125;
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 移除：为接收者移除全部委托派发
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        public void Remove(IMessageReceiver receiver)
+        &#123;
+            events.TryRemoveAndDispose(receiver);
+        &#125;
+
+
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="六、管理器"><a href="#六、管理器" class="headerlink" title="六、管理器"></a>六、管理器</h1><pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace AirFramework
+&#123;
+    &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+    &#x2F;&#x2F;&#x2F; 消息派发管理器
+    &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+    public partial class MessageManager : GlobalManager, IMessageReceiver
+    &#123;
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 消息派发器存储器
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        private Dictionary&lt;Type, UnitMessageDispatcher&gt; dispatchers &#x3D; new();
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 消息移除：移除全局所有的该类消息
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        public void Remove&lt;T&gt;() where T : IMessage
+        &#123;
+            UnRegister(typeof(T));
+        &#125;
+
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 消息移除：移除该对象所有的该类消息
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        public void Remove&lt;T&gt;(IMessageReceiver receiver) where T : IMessage
+        &#123;
+            UnRegister(typeof(T), receiver);
+        &#125;
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace AirFramework
+&#123;
+    &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+    &#x2F;&#x2F;&#x2F; 消息派发管理器
+    &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+    public partial class MessageManager : GlobalManager, IMessageReceiver
+    &#123;
+
+        internal static Func&lt;UnitMessageDispatcher&gt; GetDispatcherFromPool &#x3D; () &#x3D;&gt; Framework.Pool.Allocate&lt;UnitMessageDispatcher&gt;();
+
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 基础消息注册
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        internal void Register(Type messageType, IMessageReceiver receiver, Type deleType, Delegate message)
+        &#123;
+            dispatchers.GetValueOrAddDefault(messageType,GetDispatcherFromPool).Value.Add(receiver, deleType, message);
+        &#125;
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 基础消息移除
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        internal void UnRegister(Type messageType, IMessageReceiver receiver, Type deleType, Delegate message)
+        &#123;
+            if(dispatchers.TryGetValue(messageType,out var dispatcher))
+            &#123;
+                dispatcher.Value.Remove(receiver, deleType, message);
+                if (dispatcher.Value.Count &#x3D;&#x3D; 0)
+                &#123;
+                    dispatchers.RemoveAndDispose(messageType);
+                &#125;
+            &#125;
+        &#125;
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 基础消息移除：移除接收者的全部该类型消息
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        internal void UnRegister(Type messageType, IMessageReceiver receiver)
+        &#123;
+
+            if (dispatchers.TryGetValue(messageType, out var dispatcher))
+            &#123;
+                dispatcher.Value.Remove(receiver);
+                if (dispatcher.Value.Count &#x3D;&#x3D; 0)
+                &#123;
+                    dispatchers.RemoveAndDispose(messageType);
+                &#125;
+            &#125;
+        &#125;
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 基础消息移除：移除全部该类型消息
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        &#x2F;&#x2F;&#x2F; &lt;param name&#x3D;&quot;messageType&quot;&gt;&lt;&#x2F;param&gt;
+        internal void UnRegister(Type messageType)
+        &#123;
+            dispatchers.TryRemoveAndDispose(messageType);
+        &#125;
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 基础消息移除：移除全局所有消息
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        internal void UnRegister()
+        &#123;
+            dispatchers.ClearAndDispose();
+        &#125;
+
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 基础消息移除：移除对象身上全部消息
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        &#x2F;&#x2F;&#x2F; &lt;param name&#x3D;&quot;receiver&quot;&gt;&lt;&#x2F;param&gt;
+        internal void UnRegister(IMessageReceiver receiver)
+        &#123;
+            var queue &#x3D; Framework.Pool.Allocate&lt;UnitQueue&lt;Type&gt;&gt;();
+            foreach(var dispatcher in dispatchers)
+            &#123;
+                dispatcher.Value.Value.Remove(receiver);
+                if (dispatcher.Value.Value.Count &#x3D;&#x3D; 0)
+                &#123;
+                    queue.Value.Enqueue(dispatcher.Key);
+                &#125;
+            &#125;
+            while(queue.Value.Count &gt; 0) dispatchers.Remove(queue.Value.Dequeue());
+            queue.Dispose();
+        &#125; 
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="七、拓展方法"><a href="#七、拓展方法" class="headerlink" title="七、拓展方法"></a>七、拓展方法</h1><p>我们实现了基本的注册和取消注册，还有获取，但没有发布，通过添加拓展的方式，我们就实现了上文提到的语法</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">		 public static UnitDelegateGroup Operator&lt;MessageType&gt;(this IMessageReceiver receiver) where MessageType : IMessage
+        &#123;
+            return Framework.Message.Operator&lt;MessageType&gt;(receiver);
+        &#125;
+        &#x2F;&#x2F;&#x2F; 发布
+        public static void Publish(this UnitDelegateGroup container)
+        &#123;
+            var events &#x3D; container?.Value.Get&lt;Action&gt;();
+            if (events &#x3D;&#x3D; null ||events.Count&#x3D;&#x3D;0) return;
+            for(int i&#x3D;0; i&lt;events.Count; i++)
+            &#123;
+                (events[i] as Action)?.Invoke();
+            &#125;
+   
+        &#125;
+        &#x2F;&#x2F;&#x2F; &lt;summary&gt;
+        &#x2F;&#x2F;&#x2F; 发布
+        &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
+        public static void Publish&lt;T1&gt;(this UnitDelegateGroup container, T1 arg1)
+        &#123;
+            var events &#x3D; container?.Value.Get&lt;Action&lt;T1&gt;&gt;();
+            if (events &#x3D;&#x3D; null || events.Count &#x3D;&#x3D; 0) return;
+            for (int i &#x3D; 0; i &lt; events.Count; i++)
+            &#123;
+                (events[i] as Action&lt;T1&gt;)?.Invoke(arg1);
+            &#125;
+        &#125;
+
+
+public static void Subscribe(this UnitDelegateGroup container,Action message)
+            &#x3D;&gt;container?.Value.Add&lt;Action&gt;(message);
+public static void UnSubscribe(this UnitDelegateGroup container, Action message)
+            &#x3D;&gt; container?.Value.Remove&lt;Action&gt;(message);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="八、-带返回值的问答"><a href="#八、-带返回值的问答" class="headerlink" title="八、 带返回值的问答"></a>八、 带返回值的问答</h1><p>我们有时需要消息带有返回值，在上文基础上我可以这样调用</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">public static void Response&lt;T1&gt;(this UnitDelegateGroup container, Func&lt;T1&gt; message)
+            &#x3D;&gt;container?.Value.Add&lt;Func&lt;T1&gt;&gt;(message);
+public static void Cancel&lt;T1&gt;(this UnitDelegateGroup container, Func&lt;T1&gt; message)
+            &#x3D;&gt; container?.Value.Remove&lt;Func&lt;T1&gt;&gt;(message);
+            
+public static bool TryCall&lt;T1&gt;(this UnitDelegateGroup container,out T1 result)
+        &#123;
+            var events &#x3D; container?.Value.Get&lt;Func&lt;T1&gt;&gt;();
+            if (events &#x3D;&#x3D; null || events.Count &#x3D;&#x3D; 0)
+            &#123;
+                result &#x3D; default;
+                return false;
+            &#125;
+            result&#x3D; (events[0] as Func&lt;T1&gt;).Invoke();
+            return true;
+        &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="九、使用方式"><a href="#九、使用方式" class="headerlink" title="九、使用方式"></a>九、使用方式</h1><pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">Framework.Message.Operator&lt;IAwake&gt;().Subscribe&lt;int,int,float&gt;(myMethod);&#x2F;&#x2F;注册管理器消息
+Framework.Message.Operator&lt;IAwake&gt;().Publish(1, 2, 100.0f);&#x2F;&#x2F;管理器消息
+Framework.Message.Dispatcher&lt;IAwake&gt;().Publish(1,2,100.0f);&#x2F;&#x2F;全局消息包含包含管理器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>我们甚至可以加一下拓展，实现this.Operator的简化语法<br>本文就到这里，至此消息机制系列结束，作者现在大一填完高一时的坑了。</p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+				<span id="busuanzi_container_site_pv"> 2023 </span> 
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/website_logo.png"/>
+	<link rel="shortcut icon" href="/img/website_logo.png">
+	
+			    <title>
+    yueh0607
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="yueh0607" />
+    
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">BACK</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/C/">C</a></li><li><a class="category-link" href="/categories/C/">C++</a></li><li><a class="category-link" href="/categories/Unity3D/">Unity3D</a></li><li><a class="category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/yueh0607" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a title="500px" href="https://blog.csdn.net/qq_46273241" target="_blank" rel="noopener">
+                            <i class="icon fa fa-500px"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241035500.jpeg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Unity3D消息机制(2)</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>笔者曾在高中时写过一篇<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46273241/article/details/105793637">文风浮夸的文章</a>(点我跳转)，虽然发布在2021年，但是它的诞生时间更早(大概2020)，只不过中途进了回收站，转眼笔者已经大一了，就想写一个属于自己的初步游戏框架(进阶工具集),其中最重要的一部分就是消息驱动。本文需要一定的编程基础。<br><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241035644.jpeg" alt="在这里插入图片描述"><br>另外本文不会讲很多内容，仅仅是作为高一时那篇文章的填坑笔记，简单讨论一下怎么设计一个比较好的消息机制。</p>
+<h1 id="二、填坑秘籍"><a href="#二、填坑秘籍" class="headerlink" title="二、填坑秘籍"></a>二、填坑秘籍</h1><h3 id="第一个坑：泛型太多难维护"><a href="#第一个坑：泛型太多难维护" class="headerlink" title="第一个坑：泛型太多难维护"></a>第一个坑：泛型太多难维护</h3><p>当然还是跟上篇文章非常类似，主要是为了那篇文章的坑。<br>那篇文章里说到Register和Remove，Invoke的时候只给出了无参数的实现，然后我给出的后续实现是通过写一大堆泛型来补充参数。</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">void Register&lt;T,K,A,V&gt;(T a,K b, A c,V d);
+void Register&lt;T,K,A&gt;(T a,K b, A c);
+void Register&lt;T,K&gt;(T a,K b);
+void Register&lt;T&gt;(T a);
+void Register();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样的函数要写多个重载,<strong>代码很难维护</strong>….但是性能非常好<br>当然读者可能在网上看到这种实现</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">void Register(params object[] parm); 
+&#x2F;&#x2F;void Register(params dynamic[] parm);  也是object实现的有装箱
+void MyMethod()
+&#123;
+	Register(1,&quot;str&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这种实现最大的问题就是在值类型(栈空间)到object(堆空间)的装箱过程，性能瓶颈，但是代码极容易维护。</p>
+<p>我无意间想起C# 提供了一种新的数据类型，**Tuple&#x2F;ValueTuple(元组)**，</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">void Register(ValueTuple tuple); 
+
+void MyMethod()
+&#123;
+	Register((10,&quot;30&quot;));
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这样可以避免装箱问题，但是要求<strong>用户注册的委托只能带有ValueTuple类型的唯一参数</strong>然后自己处理元组类型转换，一定程度上有些侵入性(对用户有强制性)，但是代码变得容易维护且兼顾性能。</p>
+<p>如果你不能很好的理解这些内容，请尝试自己实现<strong>上篇文章</strong>的消息机制。<br>至于选择什么，还要看具体情景，没有最好的设计，只有最合适。</p>
+<h3 id="第二个坑：选什么当key"><a href="#第二个坑：选什么当key" class="headerlink" title="第二个坑：选什么当key"></a>第二个坑：选什么当key</h3><p>上篇文章我们只提到了三种选择，如下</p>
+<blockquote>
+<p><strong>1.string - 描述性极强，容易引发GC (string来回拷贝)</strong><br><strong>2.enum - 兼顾描述性和性能但不是很方便(手动增加枚举)</strong><br><strong>3.int&#x2F;long - 不具备描述性 (不知道int对应什么事件)</strong></p>
+</blockquote>
+<p>虽然心里一百个不愿意用int，但是很多公司确实是这样做的，但是会建立工具自动生成并绑定int和一些描述性的值<br>后来受到启发，我发现<strong>任意类型都可以作为key</strong>，如下</p>
+<blockquote>
+<p><strong>1.object - 较为松散，容易引发装箱，通过C#的拓展方法可以实现object.Send()这样的快乐API</strong><br><strong>2. interface - 可以要求用户仅使用实现接口的类作为key，也有object的优点</strong></p>
+</blockquote>
+<p>可能读完这段内容难以理解，简单概括上篇文章的<strong>Dictionary</strong> <strong>&lt;** **TKey,Delegate**  **&gt;</strong> 中的Key可以是任意类型，不一定非要局限在一些特殊类型。</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">interface IMessage&#123;&#125;
+class MyMessage:IMessage
+&#123;
+	public int id &#x3D; 10;
+&#125;
+class AObj
+&#123;
+	void OnMyMessage(MyMessage message)
+	&#123;
+		&#x2F;&#x2F;处理消息
+	&#125;
+	
+	void MyMethod()
+	&#123;
+		Register&lt;MyMessage&gt;(OnMyMessage);
+		Send&lt;MyMessage&gt;(new MyMessage&#123;id &#x3D; 20&#125;);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这些内容笔者因为还在上学没有时间统一整理，只能简单对读者进行启发，更多还是要靠自己探索。建议读者康康Github上的这些优秀项目的相关实现</p>
+<blockquote>
+<p>MediatR<br>IFramework</p>
+</blockquote>
+<p>在<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46273241/article/details/128950090">下一篇文章：基于观察者模式的全局消息机制</a>中，笔者将会介绍使用观察者模式实现消息机制<br><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241035500.jpeg" alt="在这里插入图片描述"></p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+				<span id="busuanzi_container_site_pv"> 2023 </span> 
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>

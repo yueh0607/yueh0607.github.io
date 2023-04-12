@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/website_logo.png"/>
+	<link rel="shortcut icon" href="/img/website_logo.png">
+	
+			    <title>
+    yueh0607
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="yueh0607" />
+    
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">BACK</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/C/">C</a></li><li><a class="category-link" href="/categories/C/">C++</a></li><li><a class="category-link" href="/categories/Unity3D/">Unity3D</a></li><li><a class="category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/yueh0607" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a title="500px" href="https://blog.csdn.net/qq_46273241" target="_blank" rel="noopener">
+                            <i class="icon fa fa-500px"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241034287.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Unity消息机制与耦合(1)</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="1-什么是耦合？有什么坏处？"><a href="#1-什么是耦合？有什么坏处？" class="headerlink" title="1. 什么是耦合？有什么坏处？"></a>1. 什么是耦合？有什么坏处？</h1><p><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241034287.png" alt="在这里插入图片描述"><br>藕这种东西大家都听说过吧？<br>耦合就是像耦一样的东西…..<strong>藕断…嘶….连</strong></p>
+<p>短路3s………………</p>
+<p><strong>我们修改A模块，结果导致B崩溃了，修改B模块导致C模块崩溃了，至此996熬夜加班，万古如长夜</strong></p>
+<p><strong>如果A，B，C之间半点关系没有，那是不是可以哪里坏了点哪里！！哪里坏了修哪里，即使我不断反向修复，那么坏的也最多一个模块</strong>，而且，要是我们把不同的功能分开放，也方便改不是？</p>
+<p>我们在编写代码时应该<strong>考虑到以后可能的修改需求，有良好的拓展性</strong>，但是我们不期待完全解耦，这是不现实的，过于严重的解耦会导致代码割裂而散乱，我们追求”<strong>低耦合，高内聚“</strong>。</p>
+<blockquote>
+<p>耦合性：也称块间联系。指软件系统结构中各模度块间相互联系紧密程度的一种度量。模块之问间联系越紧密，其耦合性就越答强，模块的独立性则越差。</p>
+</blockquote>
+<blockquote>
+<p>来自  <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39736982/article/details/81478176![%E8%BF%99%E9%87%8C%E6%98%AF%E5%BC%95%E7%94%A8](https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241034825.png)">https://blog.csdn.net/qq_39736982/article/details/81478176![这里是引用](https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241034825.png)</a></p>
+</blockquote>
+<h1 id="2-如何做到解耦合？"><a href="#2-如何做到解耦合？" class="headerlink" title="2. 如何做到解耦合？"></a>2. 如何做到解耦合？</h1><p>打个(不)<strong>恰当</strong>的比喻就像是一对热恋的情侣…十分耦合….咳咳…我这是在讨论技术…(我朋友爱看，呸，看什么，这是技术文)…<br>如何解耦合…就是如何逐步降低他们的关系(狗头护体，滑稽护体)<br>显然是让他们不再相互依赖！<br>两个模块之间降低依赖程度，就是耦合度低了<br>但是依赖是不可避免的,就像人与人总是有联系。</p>
+<blockquote>
+<p><strong>没有人是与世隔绝的孤岛，每个人都是广袤大陆的一部分</strong></p>
+</blockquote>
+<p><strong>我们直接没有太多直接关联，笔者不会向你收钱，你的钱也不是我的(哭)</strong></p>
+<p><strong>也就是说，笔者发几篇文章也是发在CSDN而不是直接发给读者，读者想看也只能通过CSDN而不是找笔者要。</strong></p>
+<p><strong>我们的直接联系就变少了，通过一个类似的中介者也可以让代码耦合变少（中介模式）</strong></p>
+<h1 id="3-简易消息机制解耦合"><a href="#3-简易消息机制解耦合" class="headerlink" title="3. 简易消息机制解耦合"></a>3. 简易消息机制解耦合</h1><p>来到了本文核心内容，消息机制<br><strong>那么请思考，如何创建这个中介？</strong><br>还是上文那对小情侣…他们通过<strong>微信</strong>联系，那么<strong>微信发的就是消息</strong></p>
+<blockquote>
+<p><strong>男:   亲爱的，</strong>星期日** <strong>我们</strong> 去 <strong>森林公园</strong> <strong>玩</strong>吧**<br><strong>女:   好啊！不见不散</strong></p>
+</blockquote>
+<p>那么继续思考，<strong>谁是中介？ 当然是微信</strong>了，我们要创造一个类似微信，CSDN的中介，也就是专门<strong>打造一个平台，负责传递消息</strong><br>女生只要想去公园玩，女生就会通过微信去联系男生，而非直接去找男生。</p>
+<p>穿过多啦A梦的任意门回到文章内…</p>
+<p>首先，我们要清楚实现什么</p>
+<blockquote>
+<p> <strong>1. 微信(中介平台)</strong><br> <strong>2. 微信消息（包含时间，地点，动作，对象）</strong><br> <img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241034546.png" alt="在这里插入图片描述"></p>
+</blockquote>
+<p>只要中介者不崩溃，A出问题和B没关系，B坏了和A也没关系，这不就降低了耦合度</p>
+<h1 id="给消息命名"><a href="#给消息命名" class="headerlink" title="给消息命名"></a>给消息命名</h1><h6 id="先从微信开始"><a href="#先从微信开始" class="headerlink" title="先从微信开始"></a>先从微信开始</h6><p>消息辣莫多，我怎么知道哪条是哪条？<br>怎么区分是哪条消息？我们应该给每条消息加一个标识符。</p>
+<p><strong>可以用字符串或者枚举甚至int等多种类型作为标识符</strong><br>各有优点，字符串是方便，但是字符串性能不是很理想，因为比对一个10长度的字符串就是比对10个char，远低于比对一个int。</p>
+<p>int会没有描述性，123456789，请找到跳跃对应的事件…明显找不到嘛<br>枚举呢，每次都需要手动配置，但是兼顾的性能和描述性，也不是很方便。<br>虽然很不愿意，但是的确很难找到更合适的消息标识了。</p>
+<p>我使用了枚举标记一类事件，需要增加新的事件就添加枚举</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">public enum MessageList
+    &#123;
+        Meet &#x2F;&#x2F;约会的标志，这个消息叫Meet
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="（2）约定消息格式"><a href="#（2）约定消息格式" class="headerlink" title="（2）约定消息格式"></a>（2）约定消息格式</h2><p>我们怎么约定消息的格式？意思就是模块间消息只能这么写，毕竟是写给电脑看的，电脑不像人一样有着智能，它只能读懂固定格式的语言<br>不同模块直接传递的消息，有时候要有参数，一般也就4个以内，好在C#为开发者提供了泛型，可以自行决定参数类型</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">namespace xxx
+&#123;
+    public delegate void Message();
+    public delegate void Message&lt;T&gt;(T prarm1);
+    public delegate void Message&lt;T, P&gt;(T prarm1, P param2);
+    public delegate void Message&lt;T, P, W&gt;(T prarm1, P param2, W param3);
+    public delegate void Message&lt;T, P, W, G&gt;(T prarm1, P param2, W param3, G param4);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>读者可能会在网上看到很多使用object[]和parm的消息机制，最大的问题就是在值类型转object时产生装箱，所以这里采用泛型规避这个问题，缺点就是代码变得难以维护，因为不只是委托需要使用大量泛型，注册和取消注册，执行都需要。</p>
+<h2 id="（3）模拟消息中心-中介者"><a href="#（3）模拟消息中心-中介者" class="headerlink" title="（3）模拟消息中心(中介者)"></a>（3）模拟消息中心(中介者)</h2><p>那我们把消息存在哪里，当然是在中介里构造一个数据库<br>引入一个概念，叫 <strong>容器</strong><br>什么是容器，就像微信的<strong>数据库</strong>，容纳所有用户的消息.<br>键就是消息的名字，这样消息就有唯一性了<br>中介者微信怎么实现，我们用一个类模拟，在其中创建静态Dictionary来存储消息。</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">   public static class MessageCenter 
+   &#123;
+   	&#x2F;&#x2F;这个类是消息中心，就是我们的微信
+   	.
+	private static Dictionary&lt;MessageList, Delegate&gt; MessagePool &#x3D; new Dictionary&lt;MessageList, Delegate&gt;();&#x2F;&#x2F;这就是我们的数据库，存消息
+	
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>添加一个用来添加消息的方法</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">&#x2F;&#x2F;添加到消息中心存储
+public static void Add(MessageList messageType, Message message)&#x2F;&#x2F;传入一个枚举标记这个事件
+&#123;
+	&#x2F;&#x2F;这里采用switch只是为了让读者更明确分支结构，属于故意而为。
+	&#x2F;&#x2F;实际上双分支并不需要采用switch
+	switch (MessagePool.ContainsKey(messageType))   &#x2F;&#x2F;判断容器里有没有这个类型的事件
+	&#123;
+		case true:    &#x2F;&#x2F;如果有
+		&#123;
+			MessagePool[messageType] &#x3D; (Message)MessagePool[messageType] + message;    &#x2F;&#x2F;委托中加入一个新的方法
+			break;
+		&#125;
+		case false:   &#x2F;&#x2F;如果无
+		&#123;
+			MessagePool.Add(messageType, message);     &#x2F;&#x2F;添加一个新的委托
+			break;
+		&#125;
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>声明一个方法，用来判断是否存在这个事件，并且是不是空</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">private static bool IsInDic(MessageList messageType)   &#x2F;&#x2F;传入枚举标志
+&#123;
+	&#x2F;&#x2F;这里两个if可以写在一起，分开写让读者看的更清楚
+     if (MessagePool.ContainsKey(messageType))  &#x2F;&#x2F;如果有这个事件
+     &#123;
+          if (MessagePool[messageType] !&#x3D; null)  &#x2F;&#x2F;如果这个事件不是空的
+          &#123;
+               return true;  &#x2F;&#x2F;返回真
+          &#125;
+      &#125;
+      return false; 
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>有消息，自然需要执行</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">public static void Invoke(MessageList eventType)    &#x2F;&#x2F;传入消息类型
+        &#123;
+            if (IsInDic(messageType))&#x2F;&#x2F;非空
+            &#123;
+                Message msg &#x3D; MessagePool[messageType] as Message;   &#x2F;&#x2F;拿出来这个事件
+                msg?.Invoke();   &#x2F;&#x2F;不空就执行他...
+            &#125;
+        &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>自然也需要移除</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">public static void Remove(MessageList messageType, Message message)
+        &#123;
+            if (MessagePool.ContainsKey(messageType))
+            &#123;
+                MessagePool[messageType] &#x3D; (Message)MessagePool[messageType] - message;
+
+                if (MessagePool[messageType] &#x3D;&#x3D; null)
+                &#123;
+                    MessagePool.Remove(messageType);
+                &#125;
+            &#125;
+
+        &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>以上几部分在一起就是消息中心的部分代码</p>
+<blockquote>
+<p>消息机制三要素<br>1.注册Add<br>2.移除注册Remove<br>3.发送消息Invoke</p>
+</blockquote>
+<h2 id="4-使用"><a href="#4-使用" class="headerlink" title="(4) 使用"></a>(4) 使用</h2><p>整个过程写的很清楚了，这就是约定一个事件<br>如何约定一个像上文提到的事件呢</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">&#x2F;&#x2F;假设这个函数是入口函数
+void Achievement()
+&#123;
+	&#x2F;&#x2F;两个约定
+	MessageCenter.Add(MessageList.Meet,和男1去公园玩);
+	MessageCenter.Add(MessageList.Meet,和男2去公园玩);
+	&#x2F;&#x2F;取消一个
+	MessageCenter.Remove(MessageList.Meet,和男2公园玩);
+	&#x2F;&#x2F;执行约会
+	MessageCenter.Invoke(MessageList.Meet);
+&#125;
+void 和男1去公园玩()
+&#123;
+	Debug.Log(&quot;女主要和男1出去玩了&quot;);
+&#125;
+void 和男2去公园玩()
+&#123;
+	Debug.Log(&quot;女主要和男2出去玩了&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>到这里读者可能会觉得，这仅仅只是在一个方法里执行另外两个方法，有什么用？<br>笔者想说，如果Achievement方法和这两个方法分别处于两个不同的复杂结构中，我们难以直接直接调用这两个方法，而强行调用会让结构非常混乱，所以我们才建立这样的消息机制来应对，更多的细节更需要读者在实践中慢慢体会。<br>下一篇文章是笔者在大一时写的<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46273241/article/details/128754245?csdn_share_tail=%7B%22type%22:%22blog%22,%22rType%22:%22article%22,%22rId%22:%22128754245%22,%22source%22:%22qq_46273241%22%7D">填坑笔记对这篇文章进行补充</a></p>
+<p>以上举例只是玩笑，愿天下有情人终成眷属。</p>
+<p>感谢看完，小漫画加深感悟，通过中介者模式实现模块之间解耦，但是每个模块都与消息中心耦合。<br><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241034829.png" alt="在这里插入图片描述"><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241034503.png" alt="在这里插入图片描述"></p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+				<span id="busuanzi_container_site_pv"> 2023 </span> 
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>

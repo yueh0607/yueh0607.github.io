@@ -63,24 +63,24 @@
 	
 <meta name="generator" content="Hexo 6.3.0"></head>
     
-		<body class="is-loading">
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
     <!-- Wrapper 外包 s-->
-    <div id="wrapper" class="fade-in overlay">
+    <div id="wrapper" class="fade-in">
         <!-- Intro 头部显示 s -->
-                <div id="intro">
-            <h1> Welcome</h1>
-            <p> 向未来张望的时光,或许孤独而漫长 <br/>    希望努力过后,都是晴朗
-            </p>
-            <ul class="actions">
-                <li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
-            </ul>
-        </div>
         <!-- Intro 头部显示 e -->
         <!-- Header 头部logo start -->
         <header id="header">
     <a href="/" class="logo">BACK</a>
 </header>
-        <!-- Header 头部logo end -->
         <!-- Nav 导航条 start -->
         <nav id="nav" class="special" >
             <ul class="menu links" >
@@ -129,55 +129,85 @@
                     
 			</ul>
 </nav>
-        <!-- Nav 导航条 end -->
-        <!-- Main 主要部分 start -->
-        
-        <!-- 文章列表   s -->
-        <div id="main" style="background-color: transparent; padding:0;">
-        <section class="link_container" style="margin-top: 0; background-color: transparent; ">
-            <div class="link_row">
-                <!-- 文章sample  s-->
 
-                
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2023/03/24/CPlusplus/STL%E6%A0%87%E5%87%86%E5%BA%93/">
-                        <div class="page_title" style="background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text">  </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2023-03-24</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" target="_blank" rel="noopener" href="http://localhost:4000/categories/Algorithm/">
-                                </a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://raw.githubusercontent.com/yueh0607/MyPicueres/main/CPP.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >C语言-基本逻辑结构</h2></a>
             </div>
-        </section>
-        </div>
-        <!-- 文章列表   end -->
-        <!-- Main 主要部分 end -->
-        <!-- footer  页码 start-->
-        <footer style="text-align: center; padding-top: 2em;">
-  
-</footer>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="1-if-else结构"><a href="#1-if-else结构" class="headerlink" title="1.if-else结构"></a>1.if-else结构</h2><p>默认自动结合下一句，有大括号结合大括号</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">int main()
+&#123;
+	int a &#x3D; 10;
+	if(a&gt;&#x3D;10)
+	&#123;
+		a &#x3D; 5;
+	&#125;
+	else if(a&gt;&#x3D;20)
+	&#123;
+		a&#x3D;10;
+	&#125;
+	else a &#x3D; 0;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-        <!-- footer  页码 end-->
+<h2 id="2-switch-case结构"><a href="#2-switch-case结构" class="headerlink" title="2.switch -case结构"></a>2.switch -case结构</h2><p>其实可以不加大括号的，大括号是作用域规则</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">int main()
+&#123;
+	int a &#x3D; 10;
+	switch(a)
+	&#123;
+		case 1:
+		case 2:a &#x3D; 4;break;
+		default:a &#x3D; 0;break;	
+	&#125;
+	&#x2F;&#x2F;如果break缺省，则进入后执行到下一个break;
+	&#x2F;&#x2F;这样写可以让a&#x3D;1||a&#x3D;2时进入第二种情况
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3-while循环"><a href="#3-while循环" class="headerlink" title="3.while循环"></a>3.while循环</h2><p>1当表达式为假时（0为假），不执行while语句中的内容。</p>
+<p>2当表达式为真的时候（非0），便循环执行while循环语句的内容，直到表达式为假的时候便跳出循环。</p>
+<p>3当while循环语句中出现break语句时，break语句的作用是结束所有循环。</p>
+<p>4当while循环语句中出现continue语句时，continue语句的作用是结束本次循环。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">int main()
+&#123;
+	int a &#x3D; 0;
+	while(a&lt;&#x3D;100)
+	&#123;
+		a++;
+	&#125;
+	printf(&quot;%d&quot;,a);
+
+
+	do
+	&#123;
+		printf(&quot;哈哈&quot;);
+		a++;
+	&#125;
+	while(a&lt;200);
+	
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="4-for循环"><a href="#4-for循环" class="headerlink" title="4.for循环"></a>4.for循环</h2><p>在for 循环体内修改循环变量int  i，可能引发计数失控</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">int main()
+&#123;
+	for(int i&#x3D;0;i&lt;10;i++)  &#x2F;&#x2F;++i也可以，不要纠结，性能几乎没有差异
+	&#123;
+		printf(&quot;第%d次&quot;,i);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>顺序：int i &#x3D; 0    i&lt;10    code   i++    i&lt;10    code   i++ ….</p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
         <!-- Copyright 版权 start -->
                 <div id="copyright">
             <ul>
@@ -188,11 +218,10 @@
 				<span id="busuanzi_container_site_pv"> 2023 </span> 
 			
         </div>
-        <!-- Copyright 版权 end -->
     </div>
-    <!-- Wrapper 外包 e-->
-    <!-- Scripts -->
 </body>
+
+
 
  	
 </html>

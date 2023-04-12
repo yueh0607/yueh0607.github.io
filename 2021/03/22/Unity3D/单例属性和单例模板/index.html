@@ -1,0 +1,372 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/website_logo.png"/>
+	<link rel="shortcut icon" href="/img/website_logo.png">
+	
+			    <title>
+    yueh0607
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="yueh0607" />
+    
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">BACK</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/C/">C</a></li><li><a class="category-link" href="/categories/C/">C++</a></li><li><a class="category-link" href="/categories/Unity3D/">Unity3D</a></li><li><a class="category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/yueh0607" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a title="500px" href="https://blog.csdn.net/qq_46273241" target="_blank" rel="noopener">
+                            <i class="icon fa fa-500px"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241051602.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >单例属性单例模板</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <p><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241051602.png" alt="在这里插入图片描述"></p>
+<h1 id="1-什么是单例模式"><a href="#1-什么是单例模式" class="headerlink" title="1.什么是单例模式"></a>1.什么是单例模式</h1><p>相信我们都遇到过这样的问题：</p>
+<ol>
+<li>我们使用new创建对象，这个对象需要全局共享只用这一个</li>
+<li>我们需要用一种简单的方式全局能访问一个类创建的唯一对象</li>
+</ol>
+<p>总结下来，我们经常需要创建一个类的单例，也就是创建单个实例供全局访问。</p>
+<h1 id="2-单例模板"><a href="#2-单例模板" class="headerlink" title="2.单例模板"></a>2.单例模板</h1><p>我们试图创建一种全局都可以访问的对象，拥有着简单的语法，像这样</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">class GameManager: Singleton&lt;GameManager&gt;
+&#123;
+	int val &#x3D; 10;
+	public void Hi()
+	&#123;
+		val++;
+		print(val);
+	&#125;
+&#125;
+&#x2F;&#x2F;文件1
+void TestMethod1()
+&#123;
+	GameManager.Instance.Hi();
+&#125;
+&#x2F;&#x2F;文件2
+void TestMethod2()
+&#123;
+	GameManager.Instance.Hi();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我们按顺序调用TestMethod1和2.输出如下</p>
+<blockquote>
+<p>11<br>12</p>
+</blockquote>
+<p>我们来剖析单例模板下的奥秘，在代码里，我添加了较为详细的注释，而且单例模式作为最简单的设计模式，理解起来相当容易。</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">using System;
+
+namespace AirFramework
+&#123;
+    public class Singleton&lt;T&gt; where T : Singleton&lt;T&gt;
+    &#123;
+        private static readonly object _instanceLock &#x3D; new object();
+
+        &#x2F;&#x2F;volatile防止线程优化，多线程可能会对值的写入进行微调，导致冲突
+        private volatile static T instance;
+		
+        private static bool initialized &#x3D; false;
+        public static bool Initialized &#x3D;&gt; initialized;
+        public static T Instance
+        &#123;
+            get
+            &#123;
+                &#x2F;&#x2F;Double Check实现线程安全，大多数时候不是两个线程同时进入的
+                if (instance &#x3D;&#x3D; null)
+                &#123;
+                	&#x2F;&#x2F;如果已经有线程进入，等待
+                    lock (_instanceLock)
+                    &#123;
+                        if (instance &#x3D;&#x3D; null &amp;&amp; !initialized)
+                        &#123;
+
+                            instance &#x3D; Activator.CreateInstance&lt;T&gt;();
+                            initialized &#x3D; true;
+                        &#125;
+                    &#125;
+                &#125;
+                return instance;
+            &#125;
+        &#125;
+
+        public static void Load() 
+        &#123;
+            _ &#x3D; Instance;
+        &#125;
+        public static void Unload()
+        &#123;
+            if (instance !&#x3D; null)
+            &#123;
+                initialized &#x3D; false;
+                instance &#x3D; null;
+            &#125;
+        &#125;
+        &#x2F;&#x2F;防止被new
+        protected Singleton() &#123; &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>同样的，我们对于MonoBehaviour类型的单例<br>也是类似的想法，但是不同的是mono类型不能使用new，而是采用addcomponent</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">using UnityEngine;
+namespace AirFramework
+&#123;
+    public class SingletonMono&lt;T&gt; : MonoBehaviour where T : SingletonMono&lt;T&gt;
+    &#123;
+        private static T instance &#x3D; null;
+        private static bool initialized &#x3D; false;
+        public static bool Initialized &#x3D;&gt; initialized;
+        private static bool autoReset &#x3D; false;
+        &#x2F;&#x2F;Set this value will reset the Instance
+        public static bool AutoReset
+        &#123;
+            get &#x3D;&gt; autoReset;
+            set
+            &#123;
+                if (value)
+                &#123;
+                    Unload();
+                &#125;
+                autoReset &#x3D; value;
+            &#125;
+        &#125;
+        public static T Instance
+        &#123;
+            get
+            &#123;
+                &#x2F;&#x2F;不保证线程安全
+                if (instance &#x3D;&#x3D; null &amp;&amp; !initialized)
+                &#123;
+                    GameObject container &#x3D; new GameObject();
+                    container.name &#x3D; &quot;Mono(&quot; + typeof(T) + &quot;)&quot;;
+                    instance &#x3D; container.AddComponent&lt;T&gt;();
+                    if (!autoReset) DontDestroyOnLoad(container);
+                    initialized &#x3D; true;
+                &#125;
+                return instance;
+            &#125;
+        &#125;
+        public static void Load()
+        &#123;
+            _ &#x3D; Instance;
+        &#125;
+        public static void Unload()
+        &#123;
+            if (instance !&#x3D; null)
+            &#123;
+                Destroy(instance.gameObject);
+                initialized &#x3D; false;
+                instance &#x3D; null;
+            &#125;
+        &#125;
+        protected SingletonMono() &#123; &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>但是这种单例模式，无法应对某些特殊情况，比如继承</p>
+<blockquote>
+<p>假定存在GameManager类，BaseManager类，需要把GameManager做成单例，但是要继承BaseManager</p>
+</blockquote>
+<p>我们可以发现继承单例模板和继承BaseManager冲突了<br>尽管这种继承式的单例是一种很脏的设计，但是没有最好的设计，只有最合适的。我们仍然要想办法解决<br>引出一种交单例属性的设计<br>这样就可以非侵入的实现这种很脏的设计</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">class BaseManager&#123;&#125;
+class GameManager:BaseManager
+&#123;
+	public static GameManager Instance
+	&#123;
+		get&#x3D;&gt;SingletonProperty&lt;GameManager&gt;.Instance;
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>下面是单例属性的模板，其实并没有太大差异</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">using System;
+
+namespace AirFramework
+&#123;
+    public class SingletonProperty&lt;T&gt; where T : class
+    &#123;
+        private static readonly object _instanceLock &#x3D; new object();
+
+        &#x2F;&#x2F;volatile防止线程优化
+        private volatile static T instance;
+
+        private static bool initialized &#x3D; false;
+        public static bool Initialized &#x3D;&gt; initialized;
+        public static T Instance
+        &#123;
+            get
+            &#123;
+                &#x2F;&#x2F;Double Check实现线程安全
+                if (instance &#x3D;&#x3D; null)
+                &#123;
+                    lock (_instanceLock)
+                    &#123;
+                        if (instance &#x3D;&#x3D; null &amp;&amp; !initialized)
+                        &#123;
+
+                            instance &#x3D; Activator.CreateInstance&lt;T&gt;();
+                            initialized &#x3D; true;
+                        &#125;
+                    &#125;
+                &#125;
+                return instance;
+            &#125;
+        &#125;
+
+        public static void Load()
+        &#123;
+            _ &#x3D; Instance;
+        &#125;
+        public static void Unload()
+        &#123;
+            if (instance !&#x3D; null)
+            &#123;
+                initialized &#x3D; false;
+                instance &#x3D; null;
+            &#125;
+        &#125;
+        protected SingletonProperty() &#123; &#125;
+
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><p>很多人都在讲“少用单例’，不用单例这种话，少有人思考为什么<br>大家一传十十传百形成了一种默契，绕的人头晕。</p>
+<blockquote>
+<p>1.生命周期不可控<br>很多时候我们的单例是只有访问时才会加载的，属于懒汉式，这个单例的生命什么时候结束脱离了GC的掌控，只能靠我们自己去释放，如果忘记释放或者提前被释放容易产生各种问题，(其他开发者不知道你释放已经释放单例)<br>2.作用域过广<br>我们在全局都能通过静态访问单例，容易让用户误操作，而且让代码散乱不安全<br>3.单一职责过于复杂<br>使用单例可能会让一个类复杂多种职责，容易让单一文件过大，代码复杂性上升</p>
+</blockquote>
+<p>我们应该辩证的对待单例，而非一味否定。<br>我觉得单例的问题主要是基于这三点，我们可以选择性的使用单例，比如第一点要注意单例的生命，只能靠自己去尽量克服，而第二点可以通过类的访问权限来限制外部不能访问单例类，第三点是单例违法设计原则的地方，适当的违反设计原则在中小项目会更方便高效。</p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+				<span id="busuanzi_container_site_pv"> 2023 </span> 
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>

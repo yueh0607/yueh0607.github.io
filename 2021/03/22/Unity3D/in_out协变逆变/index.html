@@ -63,24 +63,24 @@
 	
 <meta name="generator" content="Hexo 6.3.0"></head>
     
-		<body class="is-loading">
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
     <!-- Wrapper 外包 s-->
-    <div id="wrapper" class="fade-in overlay">
+    <div id="wrapper" class="fade-in">
         <!-- Intro 头部显示 s -->
-                <div id="intro">
-            <h1> Welcome</h1>
-            <p> 向未来张望的时光,或许孤独而漫长 <br/>    希望努力过后,都是晴朗
-            </p>
-            <ul class="actions">
-                <li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
-            </ul>
-        </div>
         <!-- Intro 头部显示 e -->
         <!-- Header 头部logo start -->
         <header id="header">
     <a href="/" class="logo">BACK</a>
 </header>
-        <!-- Header 头部logo end -->
         <!-- Nav 导航条 start -->
         <nav id="nav" class="special" >
             <ul class="menu links" >
@@ -129,55 +129,33 @@
                     
 			</ul>
 </nav>
-        <!-- Nav 导航条 end -->
-        <!-- Main 主要部分 start -->
-        
-        <!-- 文章列表   s -->
-        <div id="main" style="background-color: transparent; padding:0;">
-        <section class="link_container" style="margin-top: 0; background-color: transparent; ">
-            <div class="link_row">
-                <!-- 文章sample  s-->
 
-                
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2023/03/24/CPlusplus/STL%E6%A0%87%E5%87%86%E5%BA%93/">
-                        <div class="page_title" style="background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text">  </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2023-03-24</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" target="_blank" rel="noopener" href="http://localhost:4000/categories/Algorithm/">
-                                </a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241107016.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >日志拦截与异常拦截</h2></a>
             </div>
-        </section>
-        </div>
-        <!-- 文章列表   end -->
-        <!-- Main 主要部分 end -->
-        <!-- footer  页码 start-->
-        <footer style="text-align: center; padding-top: 2em;">
-  
-</footer>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <p>首先让我们记住这些内容</p>
+<blockquote>
+<p><strong>in —定义逆变 (父类到子类)<br>out–定义协变 (子类到父类)</strong></p>
+</blockquote>
+<p>开玩笑哈哈，都是成年人了，不至于要背书</p>
+<p>我们都知道.Net里或者说在OOP的世界里，可以安全地把子类的引用赋给父类引用，例如：</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">string str &#x3D; &quot;string&quot;;
+object obj &#x3D; str;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>而C#里又有泛型的概念，泛型是对类型系统的进一步抽象，比上面简单的类型高级，把上面的变化体现在泛型的参数上就是我们所说的逆变与协变的概念。通过在泛型参数上使用in或out关键字，可以得到逆变或协变的能力。</p>
+<h1 id="一、逆变"><a href="#一、逆变" class="headerlink" title="一、逆变"></a>一、逆变</h1><p><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241107015.png" alt="在这里插入图片描述"></p>
+<p>这样定义，<font color=red><strong>只允许T类型在参数内使用</strong>，<strong>允许类型&lt;父类&gt;到类型&lt;子类&gt;的转换</strong></font></p>
+<h1 id="二、协变"><a href="#二、协变" class="headerlink" title="二、协变"></a>二、协变</h1><p><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241107016.png" alt="在这里插入图片描述"><br>这样定义，<font color=red><strong>只允许T类型在返回值内使用</strong>，<strong>允许类型&lt;子类&gt;到类型&lt;父类&gt;的转换</strong></font></p>
+<h1 id="三、理解一下"><a href="#三、理解一下" class="headerlink" title="三、理解一下"></a>三、理解一下</h1><p>out  - 能获取猪肉的方法，一定是获取到了动物肉，所以out仅用于返回值，是一种子到父的必然成立，称为协变<br>in  - 能杀动物的方法，一定可以杀猪，所以in仅用于参数，是一种父到子的必然成立，称为逆变</p>
 
-        <!-- footer  页码 end-->
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
         <!-- Copyright 版权 start -->
                 <div id="copyright">
             <ul>
@@ -188,11 +166,10 @@
 				<span id="busuanzi_container_site_pv"> 2023 </span> 
 			
         </div>
-        <!-- Copyright 版权 end -->
     </div>
-    <!-- Wrapper 外包 e-->
-    <!-- Scripts -->
 </body>
+
+
 
  	
 </html>

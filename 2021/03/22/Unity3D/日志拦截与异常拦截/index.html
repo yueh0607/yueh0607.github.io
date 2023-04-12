@@ -63,24 +63,24 @@
 	
 <meta name="generator" content="Hexo 6.3.0"></head>
     
-		<body class="is-loading">
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
     <!-- Wrapper 外包 s-->
-    <div id="wrapper" class="fade-in overlay">
+    <div id="wrapper" class="fade-in">
         <!-- Intro 头部显示 s -->
-                <div id="intro">
-            <h1> Welcome</h1>
-            <p> 向未来张望的时光,或许孤独而漫长 <br/>    希望努力过后,都是晴朗
-            </p>
-            <ul class="actions">
-                <li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
-            </ul>
-        </div>
         <!-- Intro 头部显示 e -->
         <!-- Header 头部logo start -->
         <header id="header">
     <a href="/" class="logo">BACK</a>
 </header>
-        <!-- Header 头部logo end -->
         <!-- Nav 导航条 start -->
         <nav id="nav" class="special" >
             <ul class="menu links" >
@@ -129,55 +129,42 @@
                     
 			</ul>
 </nav>
-        <!-- Nav 导航条 end -->
-        <!-- Main 主要部分 start -->
-        
-        <!-- 文章列表   s -->
-        <div id="main" style="background-color: transparent; padding:0;">
-        <section class="link_container" style="margin-top: 0; background-color: transparent; ">
-            <div class="link_row">
-                <!-- 文章sample  s-->
 
-                
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2023/03/24/CPlusplus/STL%E6%A0%87%E5%87%86%E5%BA%93/">
-                        <div class="page_title" style="background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text">  </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2023-03-24</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" target="_blank" rel="noopener" href="http://localhost:4000/categories/Algorithm/">
-                                </a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241105088.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >日志拦截与异常拦截</h2></a>
             </div>
-        </section>
-        </div>
-        <!-- 文章列表   end -->
-        <!-- Main 主要部分 end -->
-        <!-- footer  页码 start-->
-        <footer style="text-align: center; padding-top: 2em;">
-  
-</footer>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id=""><a href="#" class="headerlink" title=""></a></h1><p><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241105088.png" alt="在这里插入图片描述"></p>
+<p>此时我们美美的用Unity打了一个安卓包，打开玩了一会以后游戏突然崩溃了，然后我再也不能复现这个问题了！！！怎么办？留着这个坑给玩家吗？不可能的..</p>
+<p>所以就有了日志记录器，在崩溃之前拦截异常和日志写入文件内，我们就能找到错误的蛛丝马迹了。</p>
+<h1 id="1-C-异常拦截"><a href="#1-C-异常拦截" class="headerlink" title="1.C#异常拦截"></a>1.C#异常拦截</h1><p>有着这样的一个委托，所有未被捕获的异常都会被传入这个委托，这个委托就是异常的最后防线。<br>我们只需要这样就可以拦截未捕获的异常，把异常信息和堆栈信息写入文件，或者按照我们自己的方式处理</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">AppDomain.CurrentDomain.UnhandledException+&#x3D;CurrentDomain_UnhandledException;
 
-        <!-- footer  页码 end-->
+private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>我们只需要在<strong>CurrentDomain_UnhandledException</strong>中写入一些异常信息，即可保存</p>
+<h1 id="2-Unity日志拦截"><a href="#2-Unity日志拦截" class="headerlink" title="2.Unity日志拦截"></a>2.Unity日志拦截</h1><p>原理相同，还是一个拦截委托，我们可以把日志类型和日志信息写入文件。<br>另外UnityEngine.Debug.LogException和throw Exception的区别其实不大，throw和LogEx都会暂停编辑器，但是LogEx是带有Unity相关的堆栈的。</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">Application.logMessageReceived +&#x3D; Record
+
+void Record(string logString, string stackTrace, LogType type)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="3-C-堆栈跟踪"><a href="#3-C-堆栈跟踪" class="headerlink" title="3. C# 堆栈跟踪"></a>3. C# 堆栈跟踪</h1><pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">string traceInfo &#x3D; new StackTrace((Exception)(e.ExceptionObject)).ToString();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>也就是说这个东西StackTrace的构造函数里，参数是一个Exception，能获取到这个异常的堆栈信息，ToString之后就是我们需要的字符串。</p>
+<h1 id="4-写入文件"><a href="#4-写入文件" class="headerlink" title="4.写入文件"></a>4.写入文件</h1><p>可以考虑写入Application.persistentDataPath中，这个文件夹在各种平台可读写，但是Unity提供了一种打包方式”DevelopmentBuild“可以展示控制台，不过这种方式没法防范程序突然崩溃，而一般崩溃由异常导致。</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">using System.IO;
+
+
+StreamWriter writer &#x3D; new StreamWriter(Application.persistentDataPath);
+writer.Write(日志);
+writer.Close();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
         <!-- Copyright 版权 start -->
                 <div id="copyright">
             <ul>
@@ -188,11 +175,10 @@
 				<span id="busuanzi_container_site_pv"> 2023 </span> 
 			
         </div>
-        <!-- Copyright 版权 end -->
     </div>
-    <!-- Wrapper 外包 e-->
-    <!-- Scripts -->
 </body>
+
+
 
  	
 </html>
