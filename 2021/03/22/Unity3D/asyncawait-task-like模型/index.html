@@ -136,8 +136,7 @@
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <p>这篇文章确实带有一定的门槛，和我们平时的OOP编程不同，这种支持是编译时的，也就是说我们要抛弃传统OOP的思维，改为面向编译器进行编程。<br>我说的也不太清楚….重在自我理解，能找到这篇文章说明已经翻遍了CSDN…我也不会讲过于基础的内容了。</p>
-<h3 id="文末有反编译IL代码，文首有原理分析！！！"><a href="#文末有反编译IL代码，文首有原理分析！！！" class="headerlink" title="文末有反编译IL代码，文首有原理分析！！！"></a>文末有反编译IL代码，文首有原理分析！！！</h3><p><a target="_blank" rel="noopener" href="https://github.com/yueh0607/AirFramework/tree/main/Framework/Core/Async">我的项目地址-github</a>这个地址有可能要求梯子，球球了，觉得好就点个star吧<br>如果上面地址进不去，就进这个<a target="_blank" rel="noopener" href="https://gitee.com/imyueh/AirFramework/tree/main/Assets/Framework/Core/Async">”gitee地址“</a>这个更新可能不及时，但是作为参考没问题</p>
+                <h3 id="文末有反编译IL代码，文首有原理分析！！！"><a href="#文末有反编译IL代码，文首有原理分析！！！" class="headerlink" title="文末有反编译IL代码，文首有原理分析！！！"></a>文末有反编译IL代码，文首有原理分析！！！</h3><p><a target="_blank" rel="noopener" href="https://github.com/yueh0607/AirFramework/tree/main/Framework/Core/Async">我的项目地址-github</a>这个地址有可能要求梯子，球球了，觉得好就点个star吧<br>如果上面地址进不去，就进这个<a target="_blank" rel="noopener" href="https://gitee.com/imyueh/AirFramework/tree/main/Assets/Framework/Core/Async">”gitee地址“</a>这个更新可能不及时，但是作为参考没问题</p>
 <h1 id="1-异步"><a href="#1-异步" class="headerlink" title="1.异步"></a>1.异步</h1><p><img src="https://raw.githubusercontent.com/yueh0607/MyPicueres/main/202303241053728.png" alt="在这里插入图片描述"></p>
 <pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">&#x2F;&#x2F;这个方法在开始时自动被调用
 void Start()
@@ -159,7 +158,8 @@ public async void AAA()
         4.L();
     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>按照同步的逻辑分析，666应该输出在1234之后，但是在异步中不同，AAA方法不会停留，而是继续向下，可以理解为新开了一个线程执行AAA方法，但是是假的，实际上还是在主线程里。</p>
-<h2 id="异步原理分析-结合后面一起看"><a href="#异步原理分析-结合后面一起看" class="headerlink" title="异步原理分析(结合后面一起看)"></a>异步原理分析(结合后面一起看)</h2><p>1.Start方法执行到AAA进入方法<br>2.调用AsyncTaskMethodBuilder.Create静态创建并返回Builder<br>3.进入Delay获取Delay返回的AsyncTask对象<br>4.await等待AsyncTask时调用AsyncTask.GetAwaiter返回AsyncTask(IAwiter)<br>5.调用OnCompleted方法，将continuation委托更新为await以后的代码<br>5.等待Dealy方法内的Timer对象完成回调AsyncTask.SetResult方法<br>6.调用SetResult后，执行continuation委托，执行await之后的代码<br>7.进入下一个await</p>
+<h2 id="原理分析-结合后面一起看"><a href="#原理分析-结合后面一起看" class="headerlink" title="原理分析(结合后面一起看)"></a>原理分析(结合后面一起看)</h2><p>1.Start方法执行到AAA进入方法<br>2.调用AsyncTaskMethodBuilder.Create静态创建并返回Builder<br>3.进入Delay获取Delay返回的AsyncTask对象<br>4.await等待AsyncTask时调用AsyncTask.GetAwaiter返回AsyncTask(IAwiter)<br>5.调用OnCompleted方法，将continuation委托更新为await以后的代码<br>5.等待Dealy方法内的Timer对象完成回调AsyncTask.SetResult方法<br>6.调用SetResult后，执行continuation委托，执行await之后的代码<br>7.进入下一个await</p>
+<p>以上大错特错，其实这个过程是在编译时生成了一个异步状态机。用代码生成的方式展开了这个异步的过程，而不是在调用来调用去。</p>
 <p>总结：OnCompleted的continuation就是await之后，直到方法结束的代码，每次执行到await都会执行来更新到下一个段落，此前会检查IsCompleted，然后需要我们调用SetResult才能切换到下一个状态。</p>
 <h1 id="2-自定义await支持"><a href="#2-自定义await支持" class="headerlink" title="2.自定义await支持"></a>2.自定义await支持</h1><p>首先毫无道理的讲，<strong>C#就要求我们定义的类满足这个要求才能像下面这么写</strong>，原因简单粗暴：编译器要调用这个方法，按照要求做就可以。</p>
 <pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">await new AsyncTask();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
